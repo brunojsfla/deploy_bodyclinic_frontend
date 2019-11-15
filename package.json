@@ -9,7 +9,7 @@
   },
   "author": "Bruno Santos",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "admin-lte": "2.3.11",
     "angular": "1.6.4",
     "angular-animate": "1.6.4",
@@ -30,6 +30,7 @@
     "gulp-webserver": "0.9.1",
     "run-sequence": "2.2.1",
     "install": "0.8.8",
-    "npm": "^5.6.0"
+    "npm": "^5.6.0",
+    "express": "^4.17.1"
   }
 }
