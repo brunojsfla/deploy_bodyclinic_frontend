@@ -6,7 +6,7 @@ gulp.task('server', ['watch'], function(){
     return gulp.src('public').pipe(webServer({
         livereload: true,
         port: process.env.PORT || 8085,
-        open: false
+        open: true
     }));
 });
 
