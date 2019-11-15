@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp",
-    "production": "gulp --production"
+    "start": "gulp --production"
   },
   "author": "Bruno Santos",
   "license": "ISC",
