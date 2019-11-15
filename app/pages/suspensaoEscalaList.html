@@ -1,0 +1,25 @@
+<div class="box body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Profissional</th>
+                <th>Data de Início</th>
+                <th>Data de Término</th>
+                <th>Motivo</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="suspensao in sCtrl.suspensoes">
+                <td>{{ suspensao.profissional.nome }}</td>
+                <td>{{ suspensao.dtInicio | date:'dd/MM/yyyy' }}</td>
+                <td>{{ suspensao.dtTermino | date:'dd/MM/yyyy' }}</td>
+                <td>{{ suspensao.motivo }}</td>
+                <td class="table-actions">
+                    <!--<button class="btn btn-warning" ng-click="sCtrl.showUpdate(suspensao)"><i class="fa fa-pencil"></i></button>-->
+                    <button class="btn btn-danger" ng-click="sCtrl.showRemove(suspensao)"><i class="fa fa-trash-o"></i></button>
+                </td>
+            </tr>
+        </tbody>  
+    </table>
+</div>

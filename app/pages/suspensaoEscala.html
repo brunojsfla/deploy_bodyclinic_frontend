@@ -1,0 +1,38 @@
+<header-component title="Suspensão de escala" sub="Agenda"></header-component>
+
+<section class="content">
+        <div class="nav-tabs-custom" ng-controller="SuspensaoEscalaCtrl as sCtrl">
+                <ul class="nav nav-tabs">
+                        <li ng-if="sCtrl.tabList" ng-class="{active: sCtrl.tabList}">
+                                <a href data-target="#list" data-toggle="tab">
+                                        <i class="fa fa-bars"></i> Listar
+                                </a>
+                        </li>
+                        <li ng-if="sCtrl.tabCreate">
+                                <a href data-target="#insert" data-toggle="tab">
+                                        <i class="fa fa-plus"></i> Incluir
+                                </a>
+                        </li>
+                        <li ng-if="sCtrl.tabUpdate" ng-class="{active: sCtrl.tabUpdate}">
+                                <a href data-target="#update" data-toggle="tab">
+                                        <i class="fa fa-edit"></i> Alterar
+                                </a>
+                        </li>
+                        <li ng-if="sCtrl.tabDelete" ng-class="{active: sCtrl.tabDelete}">
+                                <a href data-target="#delete" data-toggle="tab">
+                                        <i class="fa fa-eraser"></i> Excluir
+                                </a>
+                        </li>
+                </ul>
+                <div class="tab-content">
+                        <div class="tab-pane" id="list" ng-if="sCtrl.tabList" ng-class="{active: sCtrl.tabList}"
+                                ng-include="'pages/suspensaoEscalaList.html'"></div>
+                        <div class="tab-pane" id="insert" ng-if="sCtrl.tabCreate"
+                                ng-include="'pages/suspensaoEscalaForm.html'"></div>
+                        <div class="tab-pane" id="update" ng-if="sCtrl.tabUpdate" ng-class="{active: sCtrl.tabUpdate}"
+                                ng-include="'pages/suspensaoEscalaForm.html'"></div>
+                        <div class="tab-pane" id="delete" ng-if="sCtrl.tabDelete" ng-class="{active: sCtrl.tabDelete}"
+                                ng-include="'pages/suspensaoEscalaForm.html'"></div>
+                </div>
+        </div>
+</section>

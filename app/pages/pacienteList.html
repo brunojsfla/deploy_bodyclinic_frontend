@@ -1,0 +1,30 @@
+<div class="box body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data de nascimento</th>
+                <th>Sexo</th>
+                <th>Contato</th>
+                <th>E-mail</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="paciente in pCtrl.pacientes">
+                <td>{{ paciente.nome }}</td>
+                <td>{{ paciente.dtNasc | date:'dd/MM/yyyy' }}</td>
+                <td>{{ paciente.sexo }}</td>
+                <td><span ng-if="paciente.telefoneCelular">{{ paciente.telefoneCelular | telCelular }}</span>
+                    <span ng-if="paciente.telefoneCelular && paciente.telefoneFixo"> | </span>
+                    <span ng-if="paciente.telefoneFixo">{{ paciente.telefoneFixo | telFixo }}</span>
+                </td>
+                <td>{{ paciente.email }}</td>
+                <td class="table-actions">
+                    <button class="btn btn-warning" ng-click="pCtrl.showUpdate(paciente)"><i class="fa fa-pencil"></i></button>
+                    <!--<button class="btn btn-danger" ng-click="pCtrl.showRemove(paciente)"><i class="fa fa-trash-o"></i></button>-->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

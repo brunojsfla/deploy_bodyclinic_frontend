@@ -1,0 +1,24 @@
+<div class="box body">
+    <div ng-include="'pages/escalaAtendimentoSearch.html'"></div>
+    <table class="table">
+        <tbody>
+            <th>
+                <th>Paciente agendado</th>
+                <th>Ações</th>
+            </th>
+            <tr ng-repeat="horario in eaCtrl.horarios">
+                <td ng-if="eaCtrl.isHorarioVencido(horario.hora)"><i><strike>{{ horario.hora | hora }}</strike></i></td>
+                <td ng-if="eaCtrl.isHorarioVencido(horario.hora) && !eaCtrl.isHorarioAgendado(horario)"><i>Horário vencido</i></td>
+                <td ng-if="eaCtrl.isHorarioVencido(horario.hora) && eaCtrl.isHorarioAgendado(horario)"><i>{{ horario.paciente }}</i></td>
+                <td ng-if="!eaCtrl.isHorarioVencido(horario.hora)"><b>{{ horario.hora | hora }}</b></td>
+                <td ng-if="!eaCtrl.isHorarioVencido(horario.hora)">{{ horario.paciente }}</td>
+                <td class="table-actions">
+                    <button class="btn btn-info" ng-disabled="eaCtrl.isHorarioVencido(horario.hora)" ng-click="eaCtrl.showInclude(horario)"><i class="fa fa-plus"></i></button>
+                    <button class="btn btn-danger" ng-disabled="eaCtrl.isHorarioVencido(horario.hora) || !eaCtrl.isHorarioAgendado(horario)" ng-click="eaCtrl.showRemove(horario)"><i class="fa fa-trash-o"></i></button>
+                </td>
+            </tr>
+        </tbody>  
+    </table>
+    </div>
+</div>
+    

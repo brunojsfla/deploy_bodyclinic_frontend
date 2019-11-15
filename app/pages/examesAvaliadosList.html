@@ -1,0 +1,46 @@
+<div class="col-xs-12">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Exame</th>
+                <th>Data do Resultado</th>
+                <th>Resultado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="exameAval in aCtrl.atendimento.examesAvaliados">
+                <td>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-newspaper-o"></i>
+                        </div>
+                        <select class="form-control" name="exameavaliado" id="exameavaliado" ng-disabled="aCtrl.tabDelete || aCtrl.tabUpdate" ng-model="exameAval.procedimento"
+                            ng-options="p.nome for p in aCtrl.procedimentos track by p._id" ng-change="aCtrl.removeDuplicateObjects($index, 'exameAval', exameAval)"></select>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group date">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="date" class="form-control" id="dtResultado" ng-disabled="aCtrl.tabDelete || aCtrl.tabUpdate" ng-model="exameAval.dtResultado"/>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-check-square-o"></i>
+                        </div>
+                        <select class="form-control" name="resultado" ng-disabled="aCtrl.tabDelete || aCtrl.tabUpdate" id="resultado" ng-model="exameAval.resultado">
+                            <option ng-repeat="resultado in aCtrl.resultado">{{ resultado.nome }}</option>
+                        </select>
+                    </div>
+                </td>
+                <td class="table-actions">
+                    <button class="btn btn-success" ng-disabled="aCtrl.tabDelete || aCtrl.tabUpdate" ng-click="aCtrl.addObject($index, 'exameAval')"><i class="fa fa-plus"></i></button>
+                    <button class="btn btn-danger" ng-disabled="aCtrl.tabDelete || aCtrl.tabUpdate" ng-click="aCtrl.removeObject($index, 'exameAval')"><i class="fa fa-trash-o"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

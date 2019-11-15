@@ -1,0 +1,44 @@
+<headerform-component text="Cadastro de medicamentos"></headerform-component>
+<div class="form" role="form">
+    <div class="box-body">
+        <div class="col-xs-12 col-sm-12">
+            <div class="form-group">
+                <label>Nome Genérico</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-circle"></i>
+                    </div>
+                    <input type="text" id="nomegenerico" class="form-control" ng-disabled="mCtrl.tabDelete" ng-model="mCtrl.medicamento.nomeGenerico" placeholder="Genérico..." required="true"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <div class="form-group">
+                <label>Nome de Fábrica</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-newspaper-o"></i>
+                    </div>
+                    <input type="text" id="nomefabrica" class="form-control" ng-disabled="mCtrl.tabDelete" ng-model="mCtrl.medicamento.nomeFabrica" placeholder="Fábrica..." required="true"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12">
+            <div class="form-group">
+                <label>Fabricante</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-sitemap"></i>
+                    </div>
+                    <input type="text" id="fabricante" class="form-control" ng-disabled="mCtrl.tabDelete" ng-model="mCtrl.medicamento.fabricante" placeholder="Fabricante..."/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box-footer">
+        <button type="button" class="btn btn-primary" ng-if="mCtrl.tabCreate" ng-click="mCtrl.saveMedicamento()">Salvar</button>
+        <button type="button" class="btn btn-info" ng-if="mCtrl.tabUpdate" ng-click="mCtrl.setMedicamento()">Atualizar</button>
+        <button type="button" class="btn btn-danger" ng-if="mCtrl.tabDelete" ng-click="mCtrl.deleteMedicamento()">Excluir</button>
+        <button type="button" class="btn btn-default" ng-click="mCtrl.getMedicamentos()">Cancelar</button>
+    </div>
+</div>

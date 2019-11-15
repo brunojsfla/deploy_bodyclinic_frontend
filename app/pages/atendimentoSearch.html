@@ -1,0 +1,65 @@
+<div class="col-xs-12 col-sm-3">
+    <div class="form-group">
+        <label>Data Inicial</label>
+        <div class="input-group date">
+            <div class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+            </div>
+            <input type="date" class="form-control pull-right" id="dtinicio" ng-model="aCtrl.filter.dtInicio"/>
+        </div>
+    </div>
+</div>
+<div class="col-xs-12 col-sm-3">
+    <div class="form-group">
+        <label>Data Final</label>
+        <div class="input-group date">
+            <div class="input-group-addon">
+                <i class="fa fa-calendar"></i>
+            </div>
+            <input type="date" class="form-control pull-right" id="dtfinal" ng-model="aCtrl.filter.dtFinal"/>
+        </div>
+    </div>
+</div>
+<div class="col-xs-12 col-sm-4">
+    <div class="form-group">
+        <label>Estado</label>
+        <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-check-circle"></i>
+                </div>
+            <select class="form-control" name="estado" id="estado" ng-model="aCtrl.filter.estado"
+                ng-options="e.nome for e in aCtrl.estadosAtendimento track by e.valor"><option value=""></option></select>
+        </div>
+    </div>
+</div>
+<div class="col-xs-12 col-sm-6" ng-if="usuarioLogado.perfil !== 'PROFISSIONAL'">
+    <div class="form-group">
+        <label>Profissional</label>
+        <div class="input-group">
+            <div class="input-group-addon">
+                <i class="fa fa-user-md"></i>
+            </div>
+            <select class="form-control" name="profissionalsearch" id="profissionalsearch" ng-model="aCtrl.filter.profissional" 
+                ng-options="s.nome for s in aCtrl.profissionais track by s._id"><option value=""></option></select>
+        </div>
+    </div>
+</div>
+<div class="col-xs-12 col-sm-6">
+    <div class="form-group">
+        <label>Paciente</label>
+        <div class="input-group">
+            <div class="input-group-addon">
+                <i class="fa fa-user"></i>
+            </div>
+            <select class="form-control" name="pacientesearch" id="pacientesearch" ng-model="aCtrl.filter.paciente" 
+                ng-options="p.nome for p in aCtrl.pacientes track by p._id"><option value=""></option></select>
+        </div>
+    </div>
+</div>
+<div class="col-xs-12 col-sm-12">
+    <div class="form-group">
+        <button class="btn btn-primary" 
+            ng-click="usuarioLogado.perfil !== 'PROFISSIONAL' ? aCtrl.getAtendimentos({profissional: aCtrl.filter.profissional, paciente: aCtrl.filter.paciente, dtInicio: aCtrl.filter.dtInicio, dtFinal: aCtrl.filter.dtFinal, estado: aCtrl.filter.estado}) : aCtrl.getAtendimentosByProfissional({paciente: aCtrl.filter.paciente, dtInicio: aCtrl.filter.dtInicio, dtFinal: aCtrl.filter.dtFinal, estado: aCtrl.filter.estado})">Pesquisar</button>
+        <button class="btn btn-warning" ng-click="aCtrl.clearFilters()">Limpar</button>
+    </div>
+</div>  

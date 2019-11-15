@@ -1,0 +1,13 @@
+.main-footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%
+}
+
+html {background-color: #ecf0f5}
+
+#toast-container{
+    top: 30px;
+    right: 35%;
+}
+

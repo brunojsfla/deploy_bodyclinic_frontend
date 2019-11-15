@@ -1,0 +1,34 @@
+<header-component title="Atendimento" sub="Registros"></header-component>
+
+<section class="content">
+    <div class="nav-tabs-custom" ng-controller="AtendimentoCtrl as aCtrl">
+        <ul class="nav nav-tabs">
+            <li ng-if="aCtrl.tabList" ng-class="{active: aCtrl.tabList}">
+                <a href data-target="#list" data-toggle="tab">
+                    <i class="fa fa-bars"></i> Listar
+                </a>
+            </li>
+            <li ng-if="aCtrl.tabCreate" ng-class="{active: aCtrl.tabCreate}">
+                <a href data-target="#insert" data-toggle="tab">
+                    <i class="fa fa-plus"></i> Incluir
+                </a>
+            </li>
+            <li ng-if="aCtrl.tabDelete" ng-class="{active: aCtrl.tabDelete}">
+                <a href data-target="#update" data-toggle="tab">
+                    <i class="fa fa-close"></i> Cancelar
+                </a>
+            </li>
+            <li ng-if="aCtrl.tabUpdate" ng-class="{active: aCtrl.tabUpdate}">
+                <a href data-target="#delete" data-toggle="tab">
+                    <i class="fa fa-eye"></i> Visualizar
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" id="list" ng-if="aCtrl.tabList" ng-class="{active: aCtrl.tabList}" ng-include="'pages/atendimentoList.html'"></div>
+            <div class="tab-pane" id="insert" ng-if="aCtrl.tabCreate" ng-class="{active: aCtrl.tabCreate}" ng-include="'pages/atendimentoForm.html'"></div>
+            <div class="tab-pane" id="update" ng-if="aCtrl.tabUpdate" ng-class="{active: aCtrl.tabUpdate}" ng-include="'pages/atendimentoForm.html'"></div>
+            <div class="tab-pane" id="delete" ng-if="aCtrl.tabDelete" ng-class="{active: aCtrl.tabDelete}" ng-include="'pages/atendimentoForm.html'"></div>
+        </div>
+    </div>
+</section>

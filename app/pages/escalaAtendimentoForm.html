@@ -1,0 +1,87 @@
+<headerform-component text="Cadastro de Escala de Atendimento"></headerform-component>
+<div class="form" role="form">
+    <div class="box-body">
+        <div class="col-xs-12 col-sm-6">
+            <div class="form-group">
+                <label>Profissional</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-user-md"></i>
+                    </div>
+                    <select class="form-control" name="profissional" id="profissional" ng-disabled="true" ng-model="eaCtrl.escala.profissional" 
+                        ng-options="s.nome for s in eaCtrl.profissionais track by s._id"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="form-group">
+                <label>Ocupação</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-graduation-cap"></i>
+                    </div>
+                    <select class="form-control" name="ocupacao" id="ocupacao" ng-disabled="eaCtrl.tabDelete" ng-model="eaCtrl.escala.ocupacao" 
+                        ng-options="o.nome for o in eaCtrl.ocupacoes track by o._id"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="form-group">
+                <label>Paciente</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <select class="form-control" name="paciente" id="paciente" ng-disabled="eaCtrl.tabDelete" ng-model="eaCtrl.escala.paciente" 
+                        ng-options="p.nome for p in eaCtrl.pacientes track by p._id"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <div class="form-group">
+                <label>Data de Atendimento</label>
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="date" class="form-control pull-right" id="dtAtendimento" ng-disabled="true" ng-model="eaCtrl.escala.dtAtendimento"/>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <div class="form-group">
+                <label>Horário</label>
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                    </div>
+                    <input type="text" class="form-control" id="horaInicio" ng-disabled="true" ng-model="eaCtrl.escala.horaInicio" ui-mask="99:99">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box-footer">
+        <button type="button" class="btn btn-primary" ng-if="eaCtrl.tabCreate" ng-click="eaCtrl.saveEscala()">Salvar</button>
+        <!--<button type="button" class="btn btn-info" ng-if="eaCtrl.tabUpdate" ng-click="eaCtrl.setEscala()">Atualizar</button>-->
+        <button type="button" class="btn btn-danger" ng-if="eaCtrl.tabDelete" data-toggle="modal" data-target="#modal-infoDelete">Excluir</button>
+        <button type="button" class="btn btn-default" ng-click="eaCtrl.start()">Cancelar</button>
+    </div>
+</div>
+<div class="modal modal-info fade" id="modal-infoDelete" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Atenção!</h4>
+            </div>
+            <div class="modal-body">
+                <p>Realmente deseja cancelar o agendamento do paciente <b>{{ eaCtrl.escala.paciente.nome }}</b>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal" ng-click="eaCtrl.start()">NÃO</button>
+                <button type="button" class="btn btn-outline" ng-click="eaCtrl.deleteEscala()" data-dismiss="modal">SIM</button>
+            </div>
+        </div>
+    </div>
+</div>

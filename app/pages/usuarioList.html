@@ -1,0 +1,25 @@
+<div class="box body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>CPF</th>
+                <th>Perfil</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="usuario in uctrl.usuarios">
+                <td>{{ usuario.nome }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>{{ usuario.cpf | cpf }}</td>
+                <td>{{ usuario.perfil }}</td>
+                <td class="table-actions">
+                    <button class="btn btn-warning" ng-click="uctrl.showUpdate(usuario)"><i class="fa fa-pencil"></i></button>
+                    <button class="btn btn-danger" ng-click="uctrl.showRemove(usuario)"><i class="fa fa-trash-o"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

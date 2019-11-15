@@ -1,0 +1,35 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp",
+    "production": "gulp --production"
+  },
+  "author": "Bruno Santos",
+  "license": "ISC",
+  "devDependencies": {
+    "admin-lte": "2.3.11",
+    "angular": "1.6.4",
+    "angular-animate": "1.6.4",
+    "angular-toastr": "2.1.1",
+    "angular-ui-router": "0.4.2",
+    "angular-ui-mask": "1.8.7",
+    "ui-select": "^0.19.8",
+    "babel-preset-es2015": "6.24.0",
+    "font-awesome": "4.7.0",
+    "gulp": "3.9.1",
+    "gulp-babel": "6.1.2",
+    "gulp-concat": "2.6.1",
+    "gulp-htmlmin": "3.0.0",
+    "gulp-uglify": "2.1.2",
+    "gulp-uglifycss": "1.0.8",
+    "gulp-util": "3.0.8",
+    "gulp-watch": "4.3.11",
+    "gulp-webserver": "0.9.1",
+    "run-sequence": "2.2.1",
+    "install": "0.8.8",
+    "npm": "^5.6.0"
+  }
+}

@@ -1,0 +1,42 @@
+<section class="sidebar">
+    <ul class="sidebar-menu">
+        <li class="header">MENU DE NAVEGAÇÃO</li>
+        <li class="treeview">
+            <a ui-sref="home"><i class="fa fa-dashboard"></i><span>HOME</span></a>
+        </li>
+        <li class="treeview">
+            <a href>
+                <i class="fa fa-edit"></i>
+                <span>Registros</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li ng-if="usuarioLogado.perfil !== 'PROFISSIONAL'"><a ui-sref="paciente"><i class="fa fa-user-plus"></i>Pacientes</a></li>
+                <li ng-if="usuarioLogado.perfil !== 'PROFISSIONAL'"><a ui-sref="profissional"><i class="fa fa-user-md"></i>Profissionais</a></li>
+                <li ng-if="usuarioLogado.perfil !== 'AUXILIAR'"><a ui-sref="atendimento"><i class="fa fa-heartbeat"></i>Atendimento</a></li>
+                <li ng-if="usuarioLogado.perfil !== 'PROFISSIONAL'"><a ui-sref="medicamento"><i class="fa fa-medkit"></i>Medicamentos</a></li>
+            </ul>
+        </li>
+        <li class="treeview" ng-if="usuarioLogado.perfil !== 'PROFISSIONAL'">
+            <a href>
+                <i class="fa  fa-calendar-o"></i>
+                <span>Agenda</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li ><a ui-sref="escalaAtendimento"><i class="fa fa-calendar-minus-o"></i>Escala de Atendimento</a></li>
+                <li><a ui-sref="suspensaoEscala"><i class="fa fa-calendar-times-o"></i>Suspensão de Escala</a></li>
+                <!--<li><a ui-sref="agendamento"><i class="fa fa-calendar"></i>Agendamento</a></li>-->
+            </ul>
+        </li>
+        <li ng-if="usuarioLogado.perfil === 'ADMINISTRADOR'">
+            <a ui-sref="usuario">
+                <i class="fa fa-laptop"></i><span>Usuários</span>
+            </a>
+        </li>
+    </ul>
+</section>

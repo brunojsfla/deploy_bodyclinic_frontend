@@ -1,0 +1,136 @@
+<headerform-component text="Cadastro de profissionais"></headerform-component>
+<div class="form" role="form">
+    <div class="box-body">
+        <div class="col-xs-12 col-sm-6">
+            <div class="form-group">
+                <label>Ocupação</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-graduation-cap"></i>
+                    </div>
+                    <select class="form-control" name="ocupacao" id="ocupacao" ng-disabled="prCtrl.tabDelete" 
+                        ng-model="prCtrl.profissional.ocupacao" ng-options="o.nome for o in prCtrl.ocupacoes track by o._id"></select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <div class="form-group">
+                <label>Data de Admissão</label>
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <i class="fa fa-check"></i>
+                    </div>
+                    <input type="date" class="form-control pull-right" id="dtAdmissao" ng-disabled="prCtrl.tabDelete" ng-model="prCtrl.profissional.dtAdmissao">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3" ng-if="prCtrl.tabUpdate || prCtrl.tabDelete">
+            <div class="form-group has-warning">
+                <label>Data de Demissão</label>
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <i class="fa fa-remove"></i>
+                    </div>
+                    <input type="date" class="form-control pull-right" id="dtDemissao" ng-disabled="prCtrl.tabDelete" ng-model="prCtrl.profissional.dtDemissao">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <div class="form-group">
+                <label>CPF</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-newspaper-o"></i>
+                    </div>
+                    <input type="text" class="form-control" id="cpf" ng-disabled="prCtrl.tabDelete" 
+                        ng-model="prCtrl.profissional.cpf" ui-mask="999.999.999-99" ng-change="prCtrl.autoInsertProfissional(prCtrl.profissional.cpf)">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <div class="form-group">
+                <label>Cartão SUS</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-credit-card"></i>
+                    </div>
+                    <input type="text" class="form-control" id="cns" ng-disabled="prCtrl.tabDelete" ng-model="prCtrl.profissional.cnsProfissional" ui-mask="999.9999.9999.9999">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="form-group">
+                <label>Nome</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-circle"></i>
+                    </div>
+                    <input type="text" id="nome" class="form-control" ng-disabled="prCtrl.tabDelete" ng-model="prCtrl.profissional.nome" placeholder="Nome..." required="true">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <div class="form-group">
+                <label>Data de Nascimento</label>
+                <div class="input-group date">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="date" class="form-control pull-right" id="dtNasc" ng-disabled="prCtrl.tabDelete" ng-model="prCtrl.profissional.dtNasc">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <div class="form-group">
+                <label>Sexo</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-venus-mars"></i>
+                    </div>
+                    <select class="form-control" name="profissionalSexo" ng-disabled="prCtrl.tabDelete" id="profissionalSexo" ng-model="prCtrl.profissional.sexo">
+                        <option ng-repeat="sexo in prCtrl.sexo">{{ sexo.nome }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <div class="form-group">
+                <label>CRM</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-stethoscope"></i>
+                    </div>
+                    <input type="text" class="form-control" id="cns" ng-disabled="prCtrl.tabDelete" ng-model="prCtrl.profissional.crm">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <div class="form-group">
+                <label>Contato</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-whatsapp"></i>
+                    </div>
+                    <input type="text" class="form-control" id="telefone" ng-disabled="prCtrl.tabDelete" ng-model="prCtrl.profissional.telefone" ui-mask="(99)99999-9999">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="form-group">
+                <label>Email</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                    <input type="email" class="form-control" id="email" ng-disabled="prCtrl.tabDelete" ng-model="prCtrl.profissional.email" placeholder="email@email.com">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box-footer">
+        <button type="button" class="btn btn-primary" ng-if="prCtrl.tabCreate" ng-click="prCtrl.saveProfissional()">Salvar</button>
+        <button type="button" class="btn btn-info" ng-if="prCtrl.tabUpdate" ng-click="prCtrl.setProfissional()">Atualizar</button>
+        <button type="button" class="btn btn-danger" ng-if="prCtrl.tabDelete" ng-click="prCtrl.deleteProfissional()">Excluir</button>
+        <button type="button" class="btn btn-default" ng-click="prCtrl.getProfissionais()">Cancelar</button>
+    </div>
+</div>
